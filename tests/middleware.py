@@ -9,8 +9,10 @@ from sudo.utils import (
     revoke_sudo_privileges,
 )
 
+
 def dummy_get_response(request):  # pragma: no cover
     return None
+
 
 class SudoMiddlewareTestCase(BaseTestCase):
     middleware = SudoMiddleware(dummy_get_response)
