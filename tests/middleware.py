@@ -10,8 +10,12 @@ from sudo.utils import (
 )
 
 
+def dummy_get_response(request):  # pragma: no cover
+    return None
+
+
 class SudoMiddlewareTestCase(BaseTestCase):
-    middleware = SudoMiddleware()
+    middleware = SudoMiddleware(dummy_get_response)
 
     def assertSignedCookieEqual(self, v1, v2, reason=None):
         value, _, _ = v1.split(":")

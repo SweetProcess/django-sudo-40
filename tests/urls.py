@@ -1,8 +1,8 @@
-from django.conf.urls import url
+from django.urls import re_path
 
 from sudo import views
 
 
 urlpatterns = [
-    url(r"^sudo/", views.sudo, name="sudo"),
+    re_path(r"^sudo/", views.sudo, name="sudo"),
 ]

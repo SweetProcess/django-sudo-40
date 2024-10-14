@@ -34,6 +34,7 @@ def pytest_configure(config):
         },
         DATABASE_NAME=":memory:",
         TEST_DATABASE_NAME=":memory:",
+        SECRET_KEY="test",
         INSTALLED_APPS=INSTALLED_APPS,
         MIDDLEWARE=MIDDLEWARE,
         PASSWORD_HASHERS=["django.contrib.auth.hashers.MD5PasswordHasher"],

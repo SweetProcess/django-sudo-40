@@ -9,7 +9,7 @@ from django.core.signing import BadSignature
 from django.utils.crypto import get_random_string, constant_time_compare
 
 # alias for backwards compatibility with older django-sudo versions
-from django.utils.http import is_safe_url  # NOQA
+from django.utils.http import url_has_allowed_host_and_scheme  # NOQA
 
 from sudo.settings import COOKIE_NAME, COOKIE_AGE, COOKIE_SALT
 
@@ -30,7 +30,7 @@ def grant_sudo_privileges(request, max_age=COOKIE_AGE):
 
     # Token doesn't need to be unique,
     # just needs to be unpredictable and match the cookie and the session
-    token = get_random_string()
+    token = get_random_string(length=12)
     request.session[COOKIE_NAME] = token
     request._sudo = True
     request._sudo_token = token
